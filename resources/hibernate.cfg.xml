@@ -31,7 +31,7 @@
               
         <mapping class="bean.Liga" />
         <mapping class="bean.Equipo"/>
-        <mapping resource="bean/Jugador.hbm.xml" />
+        <mapping class="bean.Jugador" />
         
     </session-factory>
 </hibernate-configuration>

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -10,15 +11,15 @@ import javax.persistence.OneToMany;
 public class Liga {
 		
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 	private String nombre;
-	@OneToMany
+	@OneToMany(mappedBy="liga")
 	private List<Equipo> equipos = new ArrayList<>();
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	/**

@@ -14,11 +14,14 @@ public class LigaDAO {
 		List<Liga> ligas = new ArrayList<>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			ligas = (List<Liga>)session.createQuery("FROM Persona").list();
+			ligas = (List<Liga>)session.createQuery("FROM Liga").list();
+			for (Liga liga : ligas) {
+				System.out.println(liga.getId() + " - " + liga.getEquipos());
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.print("!!!!!!!!!!!!!!!!!!!");
+		session.close();
 		return ligas;
    }
    
